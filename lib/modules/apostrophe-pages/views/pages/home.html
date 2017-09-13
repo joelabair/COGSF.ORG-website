@@ -1,0 +1,34 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in lib/modules/apostrophe-templates/views/outerLayout.html
+#}
+
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} | Home{% endblock %}
+
+{% block main %}
+  <div class="main-content">
+	{{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-images': {
+          size: 'full'
+        },
+        'apostrophe-rich-text': {
+          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+          styles: [
+            { name: 'Heading', element: 'h3' },
+            { name: 'Subheading', element: 'h4' },
+            { name: 'Paragraph', element: 'p' }
+          ]
+        }
+      }
+    }) }}
+
+	{% if not data.user %}
+	<div style="padding: 15px 0px;">
+		<a class="login-link" href="/login">Login</a>
+	</div>
+	{% endif %}
+  </div>
+{% endblock %}

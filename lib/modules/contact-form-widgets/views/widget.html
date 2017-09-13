@@ -1,0 +1,13 @@
+{# in lib/modules/contact-form-widgets/views/widget.html #}
+{% import "apostrophe-schemas:macros.html" as schemas %}
+
+<form class="contact-form" data-contact-form>
+  {{ schemas.fields(data.schema, { tabs: false }) }}
+  <div style="padding: 5px 0 10px 0;">
+	<button type="submit">Send Message</button>
+  </div>
+  {# Later gets hoisted out and becomes visible #}
+  <div class="thank-you" data-thank-you>
+    <h4> Thank you...  Your message has been sent.</h4>
+  </div>
+</form>

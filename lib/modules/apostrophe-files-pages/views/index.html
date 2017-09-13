@@ -1,0 +1,106 @@
+{% extends data.outerLayout %}
+
+{% block title %}Church of God Parkersburg Sabbath Fellowship - West Virginia{% endblock %}
+
+{% block beforeMain %}
+
+<!--Navigation Panel -->
+<div id="container">
+    <div id="header"></div>
+	<div id="navframe">
+		<div id="navarea">
+			<ul class="tabs" id="nav-menu">
+			{% for tab in data.home._children %}
+				{% set navclass = 'navbutton' %}
+				{% if data.page and (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id or tab.title == data.page.title) %}
+					{% set navclass = 'navbutton navbutton_selected' %}
+				{% endif %}
+
+				{% set navlink = tab._url %}
+				{% for child in tab._children %}
+					{% if child.tags.indexOf('default') > -1 %}
+						{% set navlink = child._url %}
+					{% endif %}
+				{% endfor %}
+
+				<a href="{{ navlink }}">
+					<li class="{{ navclass }}">
+						<span class="ntext">
+							{{ tab.title }}
+						</span>
+					</li>
+				</a>
+				{% endfor %}
+
+				{% if not data.user %}
+				<li class="navspacer"></li>
+				<a class="login-link" href="/login">
+					<li class="navbutton">
+						<span class="ntext">Login</span>
+					</li>
+				</a>
+			{% endif %}
+			</ul>
+		</div>
+	</div>
+	<!-- END Navigation Panel -->
+{% endblock %}
+
+
+{% block main %}
+	<div id="contentframe">
+		<div id="articles" class="page ptext">
+			{{
+				apos.area(data.page, 'body', {
+					widgets: {
+						'apostrophe-rich-text': {
+							toolbar: [ 'Styles', '-', 'Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Table' ],
+							styles: [
+								{ name: 'Heading', element: 'h3' },
+								{ name: 'Subheading', element: 'h4' },
+								{ name: 'Paragraph', element: 'p' }
+							]
+						}
+					}
+				})
+			}}
+			<div id="links" class="ptext">
+				<table>
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Author</th>
+							<th>Description</th>
+							<th style="text-align: center">Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for piece in data.pieces %}
+							<tr>
+								<td><a href="{{ apos.attachments.url(piece.attachment) }}" target="_blank">{{ piece.title }}</a></td>
+								<td style="font-size: .85em">{{ piece.credit }}</td>
+								<td style="font-size: .85em; width: 50%;">{{ piece.description }}</td>
+								<td style="text-align: center"><img src="/images/{{ piece.attachment.extension }}.png" border="0"></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block afterMain %}
+	<!-- Begin Footer -->
+	<div id="tailframe" class="trailer">
+		&copy; Copyright 2017 - Church of God Sabbath Fellowship - All rights reserved...
+	</div>
+	<!-- End Footer -->
+
+</div>
+
+<!-- {# apos.utils.log(data.pieces) #} -->
+
+
+{% endblock %}

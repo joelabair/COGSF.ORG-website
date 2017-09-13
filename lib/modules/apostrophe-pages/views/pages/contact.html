@@ -1,0 +1,110 @@
+{% extends data.outerLayout %}
+
+{% block title %}Church of God Parkersburg Sabbath Fellowship - West Virginia{% endblock %}
+
+{% block beforeMain %}
+
+<!--Navigation Panel -->
+<div id="container">
+    <div id="header"></div>
+	<div id="navframe">
+		<div id="navarea">
+			<ul class="tabs" id="nav-menu">
+			{% for tab in data.home._children %}
+				{% set navclass = 'navbutton' %}
+				{% if data.page and (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id or tab.title == data.page.title) %}
+					{% set navclass = 'navbutton navbutton_selected' %}
+				{% endif %}
+
+				{% set navlink = tab._url %}
+				{% for child in tab._children %}
+					{% if child.tags.indexOf('default') > -1 %}
+						{% set navlink = child._url %}
+					{% endif %}
+				{% endfor %}
+
+				<a href="{{ navlink }}">
+					<li class="{{ navclass }}">
+						<span class="ntext {{ 'emph' if tab.tags.indexOf('featured') > -1 }}">
+							{{ tab.title }}
+						</span>
+					</li>
+				</a>
+				{% endfor %}
+
+				{% if not data.user %}
+				<li class="navspacer"></li>
+				<a class="login-link" href="/login">
+					<li class="navbutton">
+						<span class="ntext">Login</span>
+					</li>
+				</a>
+			{% endif %}
+			</ul>
+		</div>
+	</div>
+	<!-- END Navigation Panel -->
+{% endblock %}
+
+{% block main %}
+	<div id="contentframe">
+		{% set subpages = data.page._children %}
+		{% for ancestor in data.page._ancestors %}
+			{% if ancestor.level > 0 and apos.pages.isAncestorOf(ancestor, data.page) %}
+				{% set subpages = ancestor._children %}
+			{% endif %}
+		{% endfor %}
+		{% if data.page.level == 0 %}
+			{% set subpages = [] %}
+		{% endif %}
+		{% if subpages.length %}
+		<div id="top">
+            <div id="subnav-menu">
+				{% set spacer = joiner('<div class="btn_spacer"></div>') %}
+				{% for subtab in subpages %}
+                {{ spacer() | safe }}
+				<a href="{{ subtab._url }}">
+					<div class="btns{% if subtab._id == data.page._id %} btns_selected{% endif %}">
+						<div class="ntext">
+							{{ subtab.title }}
+						</div>
+					</div>
+				</a>
+				{% endfor %}
+            </div>
+		</div>
+		{% endif %}
+
+		<div id="contact" class="page ptext">
+			{{
+				apos.area(data.page, 'body', {
+					widgets: {
+						'apostrophe-rich-text': {
+							toolbar: [ 'Styles', '-', 'Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Table' ],
+							styles: [
+								{ name: 'Heading', element: 'h3' },
+								{ name: 'Subheading', element: 'h4' },
+								{ name: 'Paragraph', element: 'p' }
+							]
+						},
+						'contact-form': {}
+					}
+				})
+			}}
+		</div>
+	</div>
+{% endblock %}
+
+{% block afterMain %}
+	<!-- Begin Footer -->
+	<div id="tailframe" class="trailer">
+		&copy; Copyright 2017 - Church of God Sabbath Fellowship - All rights reserved...
+	</div>
+	<!-- End Footer -->
+
+</div>
+
+<!-- {{ apos.utils.log(data.page._url) }} -->
+
+
+{% endblock %}
