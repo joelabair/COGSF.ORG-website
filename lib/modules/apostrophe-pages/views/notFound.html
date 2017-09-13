@@ -3,10 +3,15 @@
   it inherits a global layout by extending data.outerLayout.
 #}
 
-{% extends data.outerLayout %}
+{% extends "pages/default.html" %}
 
 {% block title %}404 - Page not found{% endblock %}
 
 {% block main %}
-  We're sorry. We couldn't find the page you're looking for.
+	<div id="contentframe">
+		<div class="page ptext" style="padding-top: 15%; text-align: center; font-size: 1em; border-color: #ccc; background: transparent; color: #333;">
+			<h1 style="font-size: 4rem; font-weight: normal; line-height: 1.1; margin: 20px 0px; text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.75);">404 - Not Found</h1>
+			We're sorry. We couldn't find the page you're looking for.
+		</div>
+	</div>
 {% endblock %}
