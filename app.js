@@ -34,6 +34,15 @@ var apos = require('apostrophe')({
 				'secret': process.env.EN_SESSSEC
 			}
 		},
+		'apostrophe-attachments': {
+			uploadfs: {
+				backend: 's3',
+				secret: process.env.COGSF_S3_SEC,
+				key: process.env.COGSF_S3_KEY,
+				bucket: process.env.COGSF_S3_BUCKET,
+				region: process.env.COGSF_S3_REGION
+			}
+		},
 		// This configures our default page template
 		'apostrophe-pages': {
 			filters: {
