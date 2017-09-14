@@ -36,7 +36,6 @@ var apos = require('apostrophe')({
 		},
 		'apostrophe-attachments': {
 			uploadfs: {
-				image: 'jimp',
 				backend: 's3',
 				secret: process.env.COGSF_S3_SEC,
 				key: process.env.COGSF_S3_KEY,
@@ -67,4 +66,4 @@ var apos = require('apostrophe')({
 	}
 });
 
-console.log(util.inspect(process.env));
+//console.log(util.inspect(process.env));
