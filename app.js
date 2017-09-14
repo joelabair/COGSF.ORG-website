@@ -66,3 +66,5 @@ var apos = require('apostrophe')({
 		'contact-form-widgets': {}
 	}
 });
+
+console.log(util.inspect(process.env));
