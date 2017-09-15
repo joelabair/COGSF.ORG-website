@@ -9,7 +9,7 @@
 
 	label {
 	    display: inline-block;
-		width: 150px;
+		width: 20%;
 		margin-right: 25px;
 		text-align: right;
 		font-weight: bold;
@@ -19,7 +19,7 @@
 	}
 
 	input {
-		width: 450px;
+		width: 63%;
 		height: 24px;
 	}
 
@@ -28,14 +28,13 @@
 	}
 
 	textarea {
-		width: 450px;
+		width: 63%;
 		height: 10em;
 		vertical-align: text-top;
 	}
 
 	button {
 		float: right;
-		margin-right: 95px;
 	}
 
 	.thank-you {
@@ -80,3 +79,63 @@
   textarea { .apos-glow(@apos-gold); }
   label:after { color: @apos-gold; }
 }
+
+
+@media only screen and (max-width : 768px) {
+	#top.contact-information, #top.service-schedule {
+		.btns {
+			max-width: none !important;
+			padding: 2px !important;
+
+			.ntext {
+				height: 1em !important;
+			}
+		}
+		.btns:hover {
+			padding: 0px !important;
+		}
+		.btn_spacer {
+			height: 1em !important;
+		}
+
+	}
+}
+
+@media only screen and (max-width : 480px) {
+	#top.contact-information, #top.service-schedule {
+		.btns {
+			max-width: none !important;
+			padding: 2px !important;
+
+			.ntext {
+				height: 1em !important;
+			}
+		}
+		.btns:hover {
+			padding: 0px !important;
+		}
+		.btn_spacer {
+			height: 1em !important;
+		}
+	}
+}
+
+@media only screen and (max-width : 375px) {
+	#top.contact-information, #top.service-schedule {
+		.btns {
+			max-width: none !important;
+			padding: 2px !important;
+
+			.ntext {
+				height: 1em !important;
+			}
+		}
+		.btns:hover {
+			padding: 0px !important;
+		}
+		.btn_spacer {
+			height: 1em !important;
+		}
+	}
+}
+

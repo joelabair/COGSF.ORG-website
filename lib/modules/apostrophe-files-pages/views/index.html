@@ -73,16 +73,16 @@
 							<th>Title</th>
 							<th>Author</th>
 							<th>Description</th>
-							<th style="text-align: center">Type</th>
+							<th>Type</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for piece in data.pieces %}
 							<tr>
 								<td><a href="{{ apos.attachments.url(piece.attachment) }}" target="_blank">{{ piece.title }}</a></td>
-								<td style="font-size: .85em">{{ piece.credit }}</td>
-								<td style="font-size: .85em; width: 50%;">{{ piece.description }}</td>
-								<td style="text-align: center"><img src="/images/{{ piece.attachment.extension }}.png" border="0"></td>
+								<td>{{ piece.credit }}</td>
+								<td>{{ piece.description }}</td>
+								<td><img src="/images/{{ piece.attachment.extension }}.png" border="0"></td>
 							</tr>
 						{% endfor %}
 					</tbody>

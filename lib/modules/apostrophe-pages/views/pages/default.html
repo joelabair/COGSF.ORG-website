@@ -67,17 +67,19 @@
 
 {% block main %}
 	<div id="contentframe">
+		{% set topclass = false %}
 		{% set subpages = data.page._children %}
 		{% for ancestor in data.page._ancestors %}
 			{% if ancestor.level > 0 and apos.pages.isAncestorOf(ancestor, data.page) %}
 				{% set subpages = ancestor._children %}
+				{% set topclass = ancestor.slug %}
 			{% endif %}
 		{% endfor %}
 		{% if data.page.level == 0 %}
 			{% set subpages = [] %}
 		{% endif %}
 		{% if subpages.length %}
-		<div id="top">
+		<div id="top" {% if topclass %}class="{{ topclass | replace('/', '')  }}"{% endif %}>
             <div id="subnav-menu">
 				{% set spacer = joiner('<div class="btn_spacer"></div>') %}
 				{% for subtab in subpages %}
@@ -126,7 +128,7 @@
 </div>
 
 <!--
-	{# apos.utils.log(data.page._url) #}
+	{# apos.utils.log(data.page._ancestors) #}
 -->
 
 

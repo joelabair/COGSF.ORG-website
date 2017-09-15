@@ -3,9 +3,12 @@
 
 <form class="contact-form" data-contact-form>
   {{ schemas.fields(data.schema, { tabs: false }) }}
-  <div style="padding: 5px 0 10px 0;">
-	<button type="submit">Send Message</button>
-  </div>
+  <fieldset>
+    <label>&nbsp;</label>
+	<div style="padding: 5px 0 10px 0;width: 62%;display: inline-block;">
+		<button type="submit">Send Message</button>
+  	</div>
+</fieldset>
   {# Later gets hoisted out and becomes visible #}
   <div class="thank-you" data-thank-you>
     <h4> Thank you...  Your message has been sent.</h4>

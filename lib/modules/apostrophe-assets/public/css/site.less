@@ -73,9 +73,24 @@ body {
 			padding: 5px 0;
 		}
 		tbody td:last-child img {
-			height: 3.375em;
+			height: 40px;
 			padding: 10px 0;
 			vertical-align: middle;
+		}
+		tbody td {
+			font-size: .75em;
+		}
+		table td:first-child {
+			font-size: 1em;
+		}
+		table th:nth-child(3), table td:nth-child(3) {
+			width: 50%;
+		}
+		table th:last-child, table td:last-child {
+			text-align: center;
+		}
+		table a {
+			text-decoration: underline;
 		}
 	}
 
@@ -497,7 +512,7 @@ div#subnav-area.btns {
 }
 
 
-@media only screen and (max-device-width : 768px) {
+@media only screen and (max-width : 768px) {
 	html {
 		font-size: 14px;
 	}
@@ -526,7 +541,7 @@ div#subnav-area.btns {
 	}
 }
 
-@media only screen and (max-device-width : 480px) {
+@media only screen and (max-width : 480px) {
 	html {
 		font-size: 12px;
 	}
@@ -553,9 +568,24 @@ div#subnav-area.btns {
 		border: solid #D8E4FC 2px;
 		background-color: #E0E9FC;
 	}
+
+	#contentframe  {
+		#articles > #links table th:first-child, #articles > #links table td:first-child {
+			width: 50%;
+		}
+
+		#articles > #links table th:nth-child(3), #articles > #links table td:nth-child(3) {
+			display: none;
+		}
+
+		#articles > #links table td:last-child img {
+			height: 30px;
+			padding: 7px 0;
+		}
+	}
 }
 
-@media only screen and (max-device-width : 375px) {
+@media only screen and (max-width : 375px) {
 	html {
 		font-size: 10px;
 	}
@@ -593,4 +623,5 @@ div#subnav-area.btns {
 		font-size: 1em;
 		line-height: 1.3em;
 	}
+
 }
