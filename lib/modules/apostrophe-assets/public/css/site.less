@@ -73,7 +73,7 @@ body {
 			padding: 5px 0;
 		}
 		tbody td:last-child img {
-			height: 2.8125em;
+			height: 3.375em;
 			padding: 10px 0;
 			vertical-align: middle;
 		}
@@ -99,17 +99,17 @@ ul li {
 	line-height: 1.375em;
 }
 
-.ptext p {
+.ptext p, .ptext table, .ptext th, .ptext td, .ptext a {
 	.fontstyle;
-	font-size: 1em;
-	line-height: 1.3em;
+	font-size: 0.875em;
+	line-height: 1.2em;
 	text-align: left;
 }
 
 .ntext {
 	.fontstyle;
-	font-size: 1em;
-	line-height: 1.3em;
+	font-size: 0.8375em;
+	line-height: 1.15em;
 	color: #505050;
 	font-weight: bold;
 	font-style: normal;
@@ -355,13 +355,14 @@ ul li {
     text-align: left;
     cursor: pointer;
     font-size: 1em;
-    max-width: 25%;
+    max-width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .btns .ntext {
     height: 1em;
+	text-align: center;
 }
 
 #subnav-menu {
@@ -510,7 +511,7 @@ div#subnav-area.btns {
 	.btns {
 		padding: 2px 0px;
 		margin: 0 4px;
-		max-width: 22%;
+		max-width: 25%;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
@@ -585,5 +586,11 @@ div#subnav-area.btns {
 
 	.ptext p {
 		font-size: 1.1em;
+		line-height: 1.3em;
+	}
+
+	.ntext {
+		font-size: 1em;
+		line-height: 1.3em;
 	}
 }
