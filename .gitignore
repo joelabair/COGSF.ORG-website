@@ -15,3 +15,9 @@ public/css/master-*.less
 .jshintrc
 public/js/_site-compiled.js
 *.komodoproject
+
+dump/
+evennode.pem
+package-lock.json
+db-dump.sh
+db-restore.sh

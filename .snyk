@@ -1,0 +1,28 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.3
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-LODASHMERGE-173732:
+    - apostrophe > cheerio > lodash.merge:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+    - apostrophe > oembetter > cheerio > lodash.merge:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+  'npm:braces:20180219':
+    - apostrophe > nunjucks > chokidar > anymatch > micromatch > braces:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+  'npm:clean-css:20180306':
+    - apostrophe > clean-css:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+  'npm:qs:20170213':
+    - apostrophe > qs:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+  'npm:utile:20180614':
+    - apostrophe > prompt > utile:
+        reason: None given
+        expires: '2019-04-05T18:57:23.405Z'
+patch: {}
